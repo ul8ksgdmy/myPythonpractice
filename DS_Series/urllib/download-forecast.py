@@ -1,5 +1,5 @@
 import urllib.request as ur
-import urllib.parse as pr
+import urllib.parse as up
 
 base_url = 'http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp'
 
@@ -9,33 +9,23 @@ values = {
 }
 
 #encode a dict
-param = pr.urlencode(values)
+params = up.urlencode(values)
 
 #full url
-url = base_url + '?' + param
+url = base_url + '?' + params
 
-rs = ur.urlopen(url)
-data = rs.read()
-sf = 'test3.txt'
-
-with open(sf, 'w' , encoding='utf-8') as f:
-    f.write(data)
-
-print('저장되었습니다.')
-
-
-
-
-
-
-
-
-
-#response
+#request & response
 res = ur.urlopen(url)
 
 #data
 data = res.read()
+
+# sf = 'test3.txt'
+
+# with open(sf, 'w' , encoding='utf-8') as f:
+#     f.write(data)
+
+# print('저장되었습니다.')
 
 #바이너리를 문자열로 변환하기
 text = data.decode('utf-8')
