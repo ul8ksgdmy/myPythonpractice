@@ -10,6 +10,7 @@ base_url = 'http://www.kma.go.kr/weather/forecast/mid-term-rss3.jsp'
 #예외처리
 if len(sys.argv) <= 1 :
     print('rewrite')
+    sys.exit()
 regionNumber = sys.argv[1]
 
 #dict
